@@ -5,6 +5,7 @@ import { Chats } from '../components/Chats'
 import { AuthContext } from '../context/AuthContext'
 import { auth } from '../firebase'
 import { signOut } from 'firebase/auth'
+import logo from '../images/logo.png'
 
 export const Sidebar = () => {
     const { currentUser } = useContext(AuthContext)

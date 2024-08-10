@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { ChatContext } from '../context/ChatContext'
-import { format, isThisWeek, isThisYear, isToday, isYesterday } from 'date-fns'
+import { differenceInMinutes, format, isThisWeek, isThisYear, isToday, isYesterday } from 'date-fns'
 
 export const Message = ({ message }) => {
     const { currentUser } = useContext(AuthContext)
@@ -12,10 +12,12 @@ export const Message = ({ message }) => {
         ref.current?.scrollIntoView({ behavior: 'smooth' })
     }, [message])
     const date = message.date.toDate();
+    const minutesAgo = differenceInMinutes(new Date(), date);
 
     let formattedDate;
-
-    if (isToday(date)) {
+    if (minutesAgo < 30) {
+        formattedDate = `${minutesAgo} mins ago`; // Messages from the last 30 mins: 'X mins ago'
+      } else if (isToday(date)) {
         formattedDate = format(date, 'p'); // Today: Time only, e.g., '4:48 PM'
     } else if (isYesterday(date)) {
         formattedDate = `Yesterday, ${format(date, 'p')}`; // Yesterday: 'Yesterday, 4:48 PM'
@@ -34,7 +36,7 @@ export const Message = ({ message }) => {
                 <img src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
             </div>
             <div className="messageContent">
-                <p>{message.text}</p>
+                {message.text && <p>{message.text}</p>}
                 {message.img && <img src={message.img} alt="" />}
                 <span>{formattedDate}</span>
             </div>
