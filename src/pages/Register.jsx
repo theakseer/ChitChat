@@ -65,7 +65,7 @@ export const Register = () => {
     return (
         <div className='formContainer'>
             <div className='formWrapper'>
-                <span className="logo">Talkify</span>
+                <span className="logo">Chit Chat</span>
                 <span className="title">Register</span>
                 <form onSubmit={handleSubmit} id='form'>
                     <input type="text" placeholder='Enter name here' name="" id="name" />

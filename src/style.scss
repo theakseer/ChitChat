@@ -130,6 +130,9 @@ body {
 
         .logo {
           font-weight: bold;
+          display: flex;
+          align-items: center;
+          gap: 10px;
 
           @include mobile {
             display: none;

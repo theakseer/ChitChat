@@ -24,7 +24,7 @@ export const Login = () => {
     return (
         <div className='formContainer'>
             <div className='formWrapper'>
-                <span className="logo">Talkify</span>
+                <span className="logo">Chit Chat</span>
                 <span className="title">Welcome!</span>
                 <form onSubmit={handleSubmit}>
                     <input type="email" name=""  placeholder='email' />
