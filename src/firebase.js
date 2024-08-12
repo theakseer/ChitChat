@@ -5,8 +5,9 @@ import { getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 
+const firebase_api = process.env.REACT_APP_FIREBASE_API_KEY
 const firebaseConfig = {
-    apiKey: "AIzaSyAcSdOE1FjpBttahFP5hYEkuA4A3T8PFT8",
+    apiKey: firebase_api,
     authDomain: "akseerjs.firebaseapp.com",
     databaseURL: "https://akseerjs.firebaseio.com",
     projectId: "akseerjs",
@@ -14,8 +15,6 @@ const firebaseConfig = {
     messagingSenderId: "198290575938",
     appId: "1:198290575938:web:8df50575cb141a3c5453db"
 };
-
-// console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
