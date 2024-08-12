@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from '../context/AuthContext';
 
 
 export const Register = () => {
     const [err, setErr] = useState(false)
     const navigate= useNavigate()
-
+    const { currentUser } = useContext(AuthContext)
+    useEffect(() =>{
+        if (currentUser) navigate('/');
+    },[currentUser])
     const handleSubmit = async (e) => {
         e.preventDefault()
         const displayName = e.target[0].value
