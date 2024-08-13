@@ -5,9 +5,8 @@ import { getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 
-const firebase_api = process.env.REACT_APP_FIREBASE_API_KEY
 const firebaseConfig = {
-    apiKey: firebase_api,
+    apiKey: "AIzaSyAcSdOE1FjpBttahFP5hYEkuA4A3T8PFT8",
     authDomain: "akseerjs.firebaseapp.com",
     databaseURL: "https://akseerjs.firebaseio.com",
     projectId: "akseerjs",
