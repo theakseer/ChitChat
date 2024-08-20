@@ -19,9 +19,9 @@ export const Searchbar = () => {
             querySnapshot.forEach((doc) => {
                 setUser(doc.data());
             });
-            console.log(querySnapshot)
+            // console.log(querySnapshot)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             setErr(true)
         }
 

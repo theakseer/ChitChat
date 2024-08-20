@@ -10,7 +10,7 @@ export const Login = () => {
     const { currentUser } = useContext(AuthContext)
     useEffect(() =>{
         if (currentUser) navigate('/');
-    },[currentUser])
+    },[currentUser,navigate])
     const handleSubmit = async (e) => {
         e.preventDefault()
         const email = e.target[0].value

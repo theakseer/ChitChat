@@ -61,8 +61,17 @@ body {
         &::placeholder {
           color: rgb(175, 175, 175);
         }
-      }
 
+      }
+      div{
+        display: flex;
+        gap: 2rem;
+        align-self: center;
+        input{
+          width: 50%;
+          cursor: pointer;
+        }
+      }
       button {
         background-color: #7b96ec;
         color: white;
